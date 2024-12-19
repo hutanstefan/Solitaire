@@ -9,7 +9,7 @@ This project is a minimalistic graphical interface that allows users to play the
 - **Name:** GAME OF SOLITAIRE
 - **ID:** 20
 - **Difficulty:** A 
-- **Proposed by:** 
+- **Proposed:** ALM
 - **Made by:** Hutan Stefan
 
 
