@@ -1,11 +1,9 @@
 import pygame
-from config import DATA
-
-CARD_WIDTH = DATA["photo_width"] // 13
-CARD_HEIGHT = DATA["photo_height"] // 5
 
 
-def load_card_sprites(image_path):
+def load_card_sprites(image_path, DATA):
+    CARD_WIDTH = DATA["photo_width"] // 13
+    CARD_HEIGHT = DATA["photo_height"] // 5
     sprite_sheet = pygame.image.load(image_path)
     card_sprites = {}
 
