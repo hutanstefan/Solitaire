@@ -7,9 +7,16 @@ class Card:
         self.suit = suit
         self.rank = rank
         self.face_up = False
+        self.color = self.assign_color()
         self.x = 0
         self.y = 0
         self.scale = (DATA["card_width"], DATA["card_height"])
+
+    def assign_color(self):
+        if self.suit in ['hearts', 'diamonds']:
+            return "Red"
+        elif self.suit in ['clubs', 'spades']:
+            return "Black"
 
     def draw_in_pile(self, surface, pos, card_back, card_sprites):
         if self.face_up:
@@ -29,4 +36,4 @@ class Card:
             surface.blit(scaled_sprite, (draw_x, draw_y))
 
     def print_card(self):
-        print(self.suit, self.rank, self.face_up)
+        print(self.suit, self.rank, self.face_up, self.color)

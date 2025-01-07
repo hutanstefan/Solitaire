@@ -8,7 +8,7 @@ GREEN = (0, 128, 0)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-SUITS = ['hearts', 'diamonds', 'clubs', 'spades']
+SUITS = ['clubs', 'diamonds', 'hearts', 'spades']
 RANKS = ['A'] + [str(i) for i in range(2, 11)] + ['J', 'Q', 'K']
 
 PHOTO_WIDTH = 2178
@@ -24,6 +24,13 @@ PILES_COORD = [
     {"x": 450, "y": PILES_Y},
     {"x": 550, "y": PILES_Y},
     {"x": 650, "y": PILES_Y},
+]
+
+DECK_Y = 50
+
+START_DECK_COORD = [
+    {"x":  1200, "y": DECK_Y},
+    {"x":  1300, "y": DECK_Y},
 ]
 DATA = {
     "screen_width": SCREEN_WIDTH,
@@ -43,6 +50,7 @@ DATA = {
         "ranks": RANKS
     },
     "piles_coord": PILES_COORD,
+    "Deck_coord": START_DECK_COORD,
 }
 
 CARD_SPRITES, CARD_BACK = load_card_sprites("cardset.jpg", DATA)

@@ -24,10 +24,10 @@ def create_deck():
     return deck
 
 
-global selected_drag_card
-selected_drag_card = [None]
 deck = create_deck()
 piles = [[] for _ in range(7)]
+deck1 = []
+deck2 = []
 
 for i in range(7):
     for j in range(i + 1):
@@ -36,15 +36,14 @@ for i in range(7):
             card.face_up = True
         piles[i].append(card)
 
+deck2 = deck[:]
+
 
 def main():
     running = True
     while running:
-        handle_events(DATA, piles, selected_drag_card, screen)
-        draw_table(DATA, screen, piles)
-
-        if selected_drag_card[0]:
-            selected_drag_card[0].draw_drag_card(screen)
+        draw_table(DATA, screen, piles, deck1, deck2)
+        handle_events(DATA, screen, piles, deck1, deck2)
 
         pygame.display.flip()
         clock.tick(FPS)
