@@ -35,5 +35,10 @@ class Card:
             draw_y = self.y - self.scale[1] // 2
             surface.blit(scaled_sprite, (draw_x, draw_y))
 
+    def draw_in_deck(self, surface, pos, card_sprites):
+        sprite = card_sprites[f"{self.rank}_{self.suit}"]
+        scaled_sprite = pygame.transform.scale(sprite, self.scale)
+        surface.blit(scaled_sprite, pos)
+
     def print_card(self):
         print(self.suit, self.rank, self.face_up, self.color)

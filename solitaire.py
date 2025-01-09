@@ -28,6 +28,10 @@ deck = create_deck()
 piles = [[] for _ in range(7)]
 deck1 = []
 deck2 = []
+clubs_deck = []
+diamonds_deck = []
+hearts_deck = []
+spades_deck = []
 
 for i in range(7):
     for j in range(i + 1):
@@ -42,8 +46,8 @@ deck2 = deck[:]
 def main():
     running = True
     while running:
-        draw_table(DATA, screen, piles, deck1, deck2)
-        handle_events(DATA, screen, piles, deck1, deck2)
+        draw_table(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hearts_deck, spades_deck)
+        handle_events(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hearts_deck, spades_deck)
 
         pygame.display.flip()
         clock.tick(FPS)
