@@ -65,6 +65,9 @@ def draw_table(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hea
         card = spades_deck[-1]
         card.draw_in_deck(screen, (spades_deck_pos["x"], spades_deck_pos["y"]), DATA["card_sprites"])
 
+    if len(clubs_deck) == 13 and len(diamonds_deck) == 13 and len(hearts_deck) == 13 and len(spades_deck) == 13:
+        draw_text(screen, "You Win!", (DATA["screen_width"] // 2 - 100, DATA["screen_height"] // 2), font, DATA["colors"]["white"])
+
 
 def draw_dragged_cards(DATA, screen, selected_card_refs, mouse_x, mouse_y):
     y_offset = 0

@@ -87,56 +87,68 @@ def handle_events(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, 
                 invalid_move = True
 
                 if clubs_deck_x <= mouse_x <= clubs_deck_x + card_width and clubs_deck_y <= mouse_y <= clubs_deck_y + card_height:
-                    if len(selected_card_refs) == 1:
-                        clubs_deck.append(selected_card_refs[0])
-                        selected_card_refs = None
-                        last_pile_index = None
-                        last_card_from_deck = None
-                        invalid_move = False
-                        break
+                    if len(selected_card_refs) == 1 and selected_card_refs[0].suit == 'clubs':
+                        card = clubs_deck[-1] if clubs_deck else None
+                        if selected_card_refs[0].rank == "A" or (card and selected_card_refs[0].rank == DATA["deck"]["ranks"][DATA["deck"]["ranks"].index(card.rank) + 1]):
+                            clubs_deck.append(selected_card_refs[0])
+                            selected_card_refs = None
+                            last_pile_index = None
+                            last_card_from_deck = None
+                            invalid_move = False
+                            break
 
                 if diamonds_deck_x <= mouse_x <= diamonds_deck_x + card_width and diamonds_deck_y <= mouse_y <= diamonds_deck_y + card_height:
-                    if len(selected_card_refs) == 1:
-                        diamonds_deck.append(selected_card_refs[0])
-                        selected_card_refs = None
-                        last_pile_index = None
-                        last_card_from_deck = None
-                        invalid_move = False
-                        break
+                    if len(selected_card_refs) == 1 and selected_card_refs[0].suit == 'diamonds':
+                        card = diamonds_deck[-1] if diamonds_deck else None
+                        if selected_card_refs[0].rank == "A" or (card and selected_card_refs[0].rank == DATA["deck"]["ranks"][DATA["deck"]["ranks"].index(card.rank) + 1]):
+                            diamonds_deck.append(selected_card_refs[0])
+                            selected_card_refs = None
+                            last_pile_index = None
+                            last_card_from_deck = None
+                            invalid_move = False
+                            break
 
                 if hearts_deck_x <= mouse_x <= hearts_deck_x + card_width and hearts_deck_y <= mouse_y <= hearts_deck_y + card_height:
-                    if len(selected_card_refs) == 1:
-                        hearts_deck.append(selected_card_refs[0])
-                        selected_card_refs = None
-                        last_pile_index = None
-                        last_card_from_deck = None
-                        invalid_move = False
-                        break
+                    if len(selected_card_refs) == 1 and selected_card_refs[0].suit == 'hearts':
+                        card = hearts_deck[-1] if hearts_deck else None
+                        if selected_card_refs[0].rank == "A" or (card and selected_card_refs[0].rank == DATA["deck"]["ranks"][DATA["deck"]["ranks"].index(card.rank) + 1]):
+                            hearts_deck.append(selected_card_refs[0])
+                            selected_card_refs = None
+                            last_pile_index = None
+                            last_card_from_deck = None
+                            invalid_move = False
+                            break
 
                 if spades_deck_x <= mouse_x <= spades_deck_x + card_width and spades_deck_y <= mouse_y <= spades_deck_y + card_height:
-                    if len(selected_card_refs) == 1:
-                        spades_deck.append(selected_card_refs[0])
-                        selected_card_refs = None
-                        last_pile_index = None
-                        last_card_from_deck = None
-                        invalid_move = False
-                        break
+                    if len(selected_card_refs) == 1 and selected_card_refs[0].suit == 'spades':
+                        card = spades_deck[-1] if spades_deck else None
+                        if selected_card_refs[0].rank == "A" or (card and selected_card_refs[0].rank == DATA["deck"]["ranks"][DATA["deck"]["ranks"].index(card.rank) + 1]):
+                            spades_deck.append(selected_card_refs[0])
+                            selected_card_refs = None
+                            last_pile_index = None
+                            last_card_from_deck = None
+                            invalid_move = False
+                            break
 
                 for i, pile in enumerate(piles):
-                    if pile:
-                        pile_x = DATA["piles_coord"][i]["x"]
-                        card_width = DATA["card_width"]
+                    pile_x = DATA["piles_coord"][i]["x"]
 
-                        if pile_x <= mouse_x <= pile_x + card_width:
+                    if pile_x <= mouse_x <= pile_x + card_width:
+                        if pile:
                             card = pile[-1]
 
-                            if card.face_up:
+                            if card.face_up and selected_card_refs[0].color != card.color and selected_card_refs[0].rank == DATA["deck"]["ranks"][DATA["deck"]["ranks"].index(card.rank) - 1]:
+                                pile.extend(selected_card_refs)
+                                selected_card_refs = None
+                                invalid_move = False
+                        else:
+                            if selected_card_refs[0].rank == "K":
                                 pile.extend(selected_card_refs)
                                 selected_card_refs = None
                                 invalid_move = False
 
                 if invalid_move and selected_card_refs:
-                    if last_pile_index:
+                    if last_pile_index is not None:
                         piles[last_pile_index].extend(selected_card_refs)
                         selected_card_refs = None
                         break
