@@ -8,6 +8,20 @@ last_card_from_deck = None
 
 
 def handle_events(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hearts_deck, spades_deck):
+    """
+    Handle all game events, including mouse.
+
+    Args:
+        DATA (dict): A dictionary containing game configuration data.
+        screen (pygame.Surface): The surface to draw the game on.
+        piles (list): A list of piles of cards.
+        deck1 (list): The first deck of cards.
+        deck2 (list): The second deck of cards.
+        clubs_deck (list): The deck of clubs.
+        diamonds_deck (list): The deck of diamonds.
+        hearts_deck (list): The deck of hearts.
+        spades_deck (list): The deck of spades.
+    """
     mouse_x, mouse_y = pygame.mouse.get_pos()
     global selected_card_refs
     global last_pile_index

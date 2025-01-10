@@ -18,6 +18,9 @@ clock = pygame.time.Clock()
 
 
 def create_deck():
+    """
+    Create a deck of cards.
+    """
     from card import Card
     deck = [Card(suit, rank) for suit in SUITS for rank in RANKS]
     shuffle(deck)
@@ -44,6 +47,10 @@ deck2 = deck[:]
 
 
 def main():
+    """
+    Main function to initialize and run the Solitaire game.
+    It sets up the game window, loads resources, and handles the game loop.
+    """
     running = True
     while running:
         draw_table(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hearts_deck, spades_deck)

@@ -2,6 +2,16 @@ import pygame
 
 
 def load_card_sprites(image_path, DATA):
+    """
+    Load card sprites from a sprite sheet image.
+
+    Args:
+        image_path (str): The path to the sprite sheet image.
+        DATA (dict): A dictionary containing game configuration data.
+
+    Returns:
+        tuple: A dictionary of card sprites and the card back image.
+    """
     CARD_WIDTH = DATA["photo_width"] // 13
     CARD_HEIGHT = DATA["photo_height"] // 5
     sprite_sheet = pygame.image.load(image_path)

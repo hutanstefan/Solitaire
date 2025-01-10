@@ -3,11 +3,35 @@ import pygame
 
 
 def draw_text(screen, text, pos, font, color):
+    """
+    Draw text on the screen.
+
+    Args:
+        screen (pygame.Surface): The surface to draw the text on.
+        text (str): The text to be drawn.
+        pos (tuple): The (x, y) position to draw the text at.
+        font (pygame.font.Font): The font to use for the text.
+        color (tuple): The color of the text.
+    """
     text_surface = font.render(text, True, color)
     screen.blit(text_surface, pos)
 
 
 def draw_table(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hearts_deck, spades_deck):
+    """
+    Draw the game table, including piles and decks.
+
+    Args:
+        DATA (dict): A dictionary containing game configuration data.
+        screen (pygame.Surface): The surface to draw the table on.
+        piles (list): A list of piles of cards.
+        deck1 (list): The first deck of cards.
+        deck2 (list): The second deck of cards.
+        clubs_deck (list): The deck of clubs.
+        diamonds_deck (list): The deck of diamonds.
+        hearts_deck (list): The deck of hearts.
+        spades_deck (list): The deck of spades.
+    """
     screen.fill(DATA["colors"]["green"])
 
     for i, pile in enumerate(piles):
@@ -70,6 +94,16 @@ def draw_table(DATA, screen, piles, deck1, deck2, clubs_deck, diamonds_deck, hea
 
 
 def draw_dragged_cards(DATA, screen, selected_card_refs, mouse_x, mouse_y):
+    """
+    Draw the cards that are being dragged by the mouse.
+
+    Args:
+        DATA (dict): A dictionary containing game configuration data.
+        screen (pygame.Surface): The surface to draw the cards on.
+        selected_card_refs (list): A list of selected card references.
+        mouse_x (int): The x-coordinate of the mouse position.
+        mouse_y (int): The y-coordinate of the mouse position.
+    """
     y_offset = 0
     for card in selected_card_refs:
         card.x = mouse_x
