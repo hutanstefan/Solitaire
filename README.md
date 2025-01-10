@@ -17,8 +17,11 @@ This project is a minimalistic graphical interface that allows users to play the
 
 ## Features
 1. Minimal graphical interface for gameplay.
+![Captură de ecran](solitare.png)
 2. Dynamic card display.
+![Captură de ecran](cardset.jpg)
 3. Endgame message display based on the outcome of the game.
+![Captură de ecran](win.png)
 
 ---
 
@@ -30,7 +33,7 @@ The program requires the following file:
 
 ## Output
 - A graphical interface displaying the cards for the game.
-- At the end of the game, a corresponding message is shown to indicate the outcome (e.g., win, loss, or other status).
+- At the end of the game, a corresponding message is shown to indicate the outcome (e.g., win).
 
 ---
 
@@ -52,7 +55,7 @@ The program requires the following file:
 
 ## How to Play
 1. Launch the game by running the script.
-2. Follow the on-screen prompts and interact with the cards using your mouse.
+2. Interact with the cards using your mouse.
 3. Arrange the cards in accordance with the rules of Solitaire.
 4. Once the game is completed, the system will display a message indicating your result.
 
